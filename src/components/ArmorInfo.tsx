@@ -1,7 +1,7 @@
 'use client'
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {BazaarResponse} from "@/types/bazaarTypes";
-import {Category, Item} from "@/types/itemsTypes";
+import {Item} from "@/types/itemsTypes";
 import {Card, CardContent, CardTitle} from "@/components/ui/card";
 import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
 
@@ -11,48 +11,49 @@ interface Props {
 }
 
 export default function ArmorInfo({items, bazaar}: Props) {
-
-    const [isFiltered, setIsFiltered] = useState(false);
-    const [crimsonArmor, setCrimsonArmor] = useState<Item[]>([]);
-    const [auroraArmor, setAuroraArmor] = useState<Item[]>([]);
-    const [terrorArmor, setTerrorArmor] = useState<Item[]>([]);
-    const [hollowArmor, setHollowArmor] = useState<Item[]>([]);
-    const [fervorArmor, setFervorArmor] = useState<Item[]>([]);
-
-    useEffect(() => {
-        const handleFilter = () => {
-            const crimson: Item[] = []
-            const aurora: Item[] = []
-            const terror: Item[] = []
-            const hollow: Item[] = []
-            const fervor: Item[] = []
-
-            items.forEach(item => {
-                if (item.category && [Category.Boots, Category.Helmet, Category.Chestplate, Category.Leggings].includes(item.category)) {
-                    if (item.name.includes("Crimson")) {
-                        crimson.push(item);
-                    } else if (item.name.includes("Aurora")) {
-                        aurora.push(item);
-                    } else if (item.name.includes("Terror")) {
-                        terror.push(item);
-                    } else if (item.name.includes("Hollow")) {
-                        hollow.push(item);
-                    } else if (item.name.includes("Fervor")) {
-                        fervor.push(item);
-                    }
-                }
-            });
-
-            setCrimsonArmor(crimson);
-            setAuroraArmor(aurora);
-            setTerrorArmor(terror);
-            setHollowArmor(hollow);
-            setFervorArmor(fervor);
-            setIsFiltered(true);
-        };
-
-        handleFilter();
-    }, [items]);
+    console.log(items);
+    console.log(bazaar);
+    // const [isFiltered, setIsFiltered] = useState(false);
+    // const [crimsonArmor, setCrimsonArmor] = useState<Item[]>([]);
+    // const [auroraArmor, setAuroraArmor] = useState<Item[]>([]);
+    // const [terrorArmor, setTerrorArmor] = useState<Item[]>([]);
+    // const [hollowArmor, setHollowArmor] = useState<Item[]>([]);
+    // const [fervorArmor, setFervorArmor] = useState<Item[]>([]);
+    //
+    // useEffect(() => {
+    //     const handleFilter = () => {
+    //         const crimson: Item[] = []
+    //         const aurora: Item[] = []
+    //         const terror: Item[] = []
+    //         const hollow: Item[] = []
+    //         const fervor: Item[] = []
+    //
+    //         items.forEach(item => {
+    //             if (item.category && [Category.Boots, Category.Helmet, Category.Chestplate, Category.Leggings].includes(item.category)) {
+    //                 if (item.name.includes("Crimson")) {
+    //                     crimson.push(item);
+    //                 } else if (item.name.includes("Aurora")) {
+    //                     aurora.push(item);
+    //                 } else if (item.name.includes("Terror")) {
+    //                     terror.push(item);
+    //                 } else if (item.name.includes("Hollow")) {
+    //                     hollow.push(item);
+    //                 } else if (item.name.includes("Fervor")) {
+    //                     fervor.push(item);
+    //                 }
+    //             }
+    //         });
+    //
+    //         setCrimsonArmor(crimson);
+    //         setAuroraArmor(aurora);
+    //         setTerrorArmor(terror);
+    //         setHollowArmor(hollow);
+    //         setFervorArmor(fervor);
+    //         setIsFiltered(true);
+    //     };
+    //
+    //     handleFilter();
+    // }, [items]);
 
 
     return (
