@@ -2,7 +2,7 @@
 import React from 'react'
 import {CandidatePerk} from "@/types/electionTypes";
 import {Card, CardContent, CardTitle} from "@/components/ui/card";
-import {MinecraftText} from "@/components/MinecraftText";
+import {MinecraftText} from "@/components/mayorComponent/MinecraftText";
 import {Star} from "lucide-react";
 
 interface Props {

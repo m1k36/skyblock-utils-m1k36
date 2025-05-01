@@ -1,8 +1,8 @@
 'use server'
 import React from 'react'
-import Header from "@/components/Header";
+import Header from "@/components/pageComponent/Header";
 import {getMayors} from "@/accessLayer/AccessLayer.Mayor";
-import MayorInfo from "@/components/MayorInfo";
+import MayorInfo from "@/components/mayorComponent/MayorInfo";
 import {toArray} from "uri-js/dist/esnext/util";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ScrollArea} from "@/components/ui/scroll-area";
@@ -40,12 +40,14 @@ export default async function MayorPage() {
                                         mayorKey={election.mayor.key}
                                         votes={election.mayor.election.candidates.find((candidate) => candidate.name === election.mayor.name)?.votes}
                                     />
-                                    <MayorInfo
-                                        name={election.mayor.minister.name}
-                                        perks={toArray(election.mayor.minister.perk)}
-                                        mayorKey={election.mayor.minister.key}
-                                        votes={election.mayor.election.candidates.find((candidate) => candidate.name === election.mayor.minister.name)?.votes}
-                                    />
+                                    { election.mayor.minister &&
+                                        <MayorInfo
+                                            name={election.mayor.minister.name}
+                                            perks={toArray(election.mayor.minister.perk)}
+                                            mayorKey={election.mayor.minister.key}
+                                            votes={election.mayor.election.candidates.find((candidate) => candidate.name === election.mayor.minister.name)?.votes}
+                                        />
+                                    }
                                 </div>
                             </AccordionContent>
                         </AccordionItem>

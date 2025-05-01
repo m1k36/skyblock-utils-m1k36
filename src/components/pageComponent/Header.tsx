@@ -12,7 +12,7 @@ interface Props {
 export default function Header({pageTitle}: Props) {
     return (
         <>
-            <header className="flex items-center justify-between px-4 py-3 text-white bg-gray-900">
+            <header className="flex items-center w-full justify-between px-4 py-3 text-white bg-gray-900">
                 <Sheet>
                     <SheetTrigger asChild>
                         <Button variant="ghost">
@@ -25,9 +25,9 @@ export default function Header({pageTitle}: Props) {
                     </SheetTitle>
                     <SheetContent side="left" className="text-white bg-gray-900 border-gray-900">
                         <nav className="flex flex-col space-y-4 m-6 mt-10">
-                            <Link href="/" className="text-2xl font-medium hover:underline">Home</Link>
+                            <Link href="/public" className="text-2xl font-medium hover:underline">Home</Link>
                             <Link href="/mayor" className="text-2xl font-medium hover:underline">Mayor</Link>
-                            <Link href="/kuudra" className="text-2xl font-medium hover:underline">kuudra armor</Link>
+                            <Link href="/items-upgrade" className="text-2xl font-medium hover:underline">Items upgrade</Link>
                         </nav>
                     </SheetContent>
                 </Sheet>
