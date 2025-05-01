@@ -28,6 +28,7 @@ export default function Header({pageTitle}: Props) {
                             <Link href="/public" className="text-2xl font-medium hover:underline">Home</Link>
                             <Link href="/mayor" className="text-2xl font-medium hover:underline">Mayor</Link>
                             <Link href="/items-upgrade" className="text-2xl font-medium hover:underline">Items upgrade</Link>
+                            <Link href="/bazaar" className="text-2xl font-medium hover:underline">Bazaar</Link>
                         </nav>
                     </SheetContent>
                 </Sheet>

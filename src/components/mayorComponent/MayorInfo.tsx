@@ -15,8 +15,8 @@ interface Props {
 export default function MayorInfo({mayorKey, name, perks, votes}: Props) {
     return (
         <>
-            <Card className="w-full mb-3 font-mono b-3 text-white bg-gray-900/0" key={mayorKey}>
-                <CardTitle className="text-lg font-semibold tracking-tight text-center text-3xl">
+            <Card className="w-full mb-3 font-mono b-3 text-white bg-gray-900 border-2 border-gray-900" key={mayorKey}>
+                <CardTitle className="font-semibold tracking-tight text-center text-3xl">
                     {name}
                 </CardTitle>
                 <CardContent className="space-y-4">
@@ -27,7 +27,7 @@ export default function MayorInfo({mayorKey, name, perks, votes}: Props) {
                         </div>
                     }
                     {perks.map((perk, index) => (
-                        <div key={index} className="border-b pb-2 last:border-b-0">
+                        <div key={index} className="border-b border-gray-700 pb-2 last:border-b-0">
                             <h3 className="text-md font-semibold flex">{perk.name} {perk.minister &&
                                 <Star className="ml-2" style={{color: "orange", width: 20, height: 20}}/>}</h3>
                             <MinecraftText

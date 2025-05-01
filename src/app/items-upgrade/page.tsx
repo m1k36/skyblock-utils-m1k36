@@ -38,7 +38,6 @@ export default async function ItemUpgradePage() {
             />
             <main className="h-[90vh] m-2">
                 <ScrollArea
-                    style={{}}
                     className="max-w-3xl w-full mx-auto p-8 h-full flex flex-col text-white bg-gray-900/70 rounded-lg content-center">
                     <div>
                         <h1 className="text-3xl font-bold w-ful">Skyblock items upgrade info </h1>

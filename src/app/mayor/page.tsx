@@ -93,7 +93,7 @@ export default async function MayorPage() {
                             <AccordionTrigger>
                                 <h2 className="text-xl font-bold">Special mayor</h2>
                             </AccordionTrigger>
-                            <AccordionContent>
+                            <AccordionContent className="bg-gray-900 border-2 border-gray-900 rounded-lg p-4">
                                 {specialMayors.map((specialMayor, index) => (
                                     <div key={index}>
                                         <h3 className="font-semibold text-base"><span

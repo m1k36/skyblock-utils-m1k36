@@ -1,26 +1,29 @@
-'use client'
-import React, {useState} from 'react';
-import {BazaarResponse} from "@/types/bazaarTypes";
-import {Item} from "@/types/itemsTypes";
-import {
-    Command,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from "@/components/ui/command"
+'use client';
+import {Command, CommandGroup, CommandInput, CommandItem, CommandList} from "@/components/ui/command";
 import {CommandEmpty} from "cmdk";
-import DataTable from "@/components/itemUpgradeComponent/DataTable";
+import React, {useState} from "react";
+import {BazaarResponse, Product} from "@/types/bazaarTypes";
+import ProductInfo from "@/components/bazaarComponent/ProductInfo";
 
-interface Props {
-    items: Item[];
+interface BazaarInfoProps {
     bazaar: BazaarResponse;
 }
 
-export default function ItemInfo({items, bazaar}: Props) {
-
+export default function BazaarInfo({bazaar}: BazaarInfoProps) {
     const [listOpen, setListOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+    const [selectedItem, setSelectedItem] = useState<Product | null>(null);
+
+    const formatKeyName = (input: string): string => {
+        return input
+            .toLowerCase()
+            .split("_")
+            .map((word, index) => {
+                return index === 0
+                    ? word.charAt(0).toUpperCase() + word.slice(1)
+                    : word;
+            })
+            .join(" ");
+    }
 
     return (
         <>
@@ -37,16 +40,16 @@ export default function ItemInfo({items, bazaar}: Props) {
                             No results found.
                         </CommandEmpty>
                         <CommandGroup heading="Items">
-                            {items.map((item, index) => (
+                            {Object.keys(bazaar.products).map((productKey, index) => (
                                 <CommandItem
                                     key={index}
                                     onMouseDown={() => {
-                                        setSelectedItem(item);
+                                        setSelectedItem(bazaar.products[productKey]);
                                         setListOpen(false);
                                     }}
                                     className="text-white"
                                 >
-                                    {item.name}
+                                    {formatKeyName(bazaar.products[productKey].product_id)}
                                 </CommandItem>
                             ))}
                         </CommandGroup>
@@ -54,10 +57,11 @@ export default function ItemInfo({items, bazaar}: Props) {
                 }
             </Command>
             {selectedItem ?
-                <DataTable
-                    item={selectedItem}
-                    bazaar={bazaar}
-                /> :
+                <>
+                    <ProductInfo
+                        product={selectedItem}
+                    />
+                </> :
                 <section
                     className="mt-4 mx-auto bg-gray-900 text-white p-4 rounded-lg shadow-md space-y-4 h-60 text-center flex flex-col items-center justify-center">
                     <h3 className="text-xl font-bold">No item selected</h3>
