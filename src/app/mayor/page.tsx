@@ -11,10 +11,10 @@ export default async function MayorPage() {
     const election = await getMayors();
     const currentYear: number = election.mayor.election.year;
     const specialMayors = [
-        {name: "Jerry", year: currentYear + 24 - (currentYear - 392) % 24},
-        {name: "Scorpius", year: currentYear + 24 - (currentYear - 400) % 24},
-        {name: "Derpy", year: currentYear + 24 - (currentYear - 408) % 24}
-    ]
+        {name: "Derpy", year: currentYear + 24 - (currentYear - 392) % 24},
+        {name: "Jerry", year: currentYear + 24 - (currentYear - 400) % 24},
+        {name: "Scorpius", year: currentYear + 24 - (currentYear - 408) % 24}
+    ].sort((a, b) => a.year - b.year);
 
     return (
         <>
