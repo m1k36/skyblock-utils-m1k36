@@ -28,6 +28,7 @@ export default function ItemInfo({items, bazaar}: Props) {
                 <CommandInput
                     placeholder="Type an item..."
                     onFocus={() => setListOpen(true)}
+                    onBlur={() => setListOpen(false)}
                 />
                 {listOpen &&
                     <CommandList>
