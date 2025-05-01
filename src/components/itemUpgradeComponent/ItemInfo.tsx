@@ -24,14 +24,15 @@ export default function ItemInfo({items, bazaar}: Props) {
 
     return (
         <>
-            <Command className="h-fit w-full mt-4">
+            <Command className="h-fit w-full mt-4 border border-gray-800 bg-gray-800 text-white">
                 <CommandInput
+                    className="w-full"
                     placeholder="Type an item..."
                     onFocus={() => setListOpen(true)}
                     onBlur={() => setListOpen(false)}
                 />
                 {listOpen &&
-                    <CommandList>
+                    <CommandList className="bg-gray-800 border border-gray-800  [&::-webkit-scrollbar]:w-0">
                         <CommandEmpty className="text-center m-2">
                             No results found.
                         </CommandEmpty>
@@ -43,6 +44,7 @@ export default function ItemInfo({items, bazaar}: Props) {
                                         setSelectedItem(item);
                                         setListOpen(false);
                                     }}
+                                    className="text-white"
                                 >
                                     {item.name}
                                 </CommandItem>

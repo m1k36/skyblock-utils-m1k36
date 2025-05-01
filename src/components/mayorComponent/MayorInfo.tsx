@@ -23,7 +23,7 @@ export default function MayorInfo({mayorKey, name, perks, votes}: Props) {
                     {votes &&
                         <div className="mb-8">
                             <h3 className="text-md font-bold">Number of votes :</h3>
-                            <p className="text-base text-gray-300">{votes}</p>
+                            <p className="text-base text-gray-300">{votes.toLocaleString("fr-FR")}</p>
                         </div>
                     }
                     {perks.map((perk, index) => (

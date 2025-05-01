@@ -36,7 +36,7 @@ export function columns(bazaar: BazaarResponse, item: Item): ColumnDef<SalvageEl
                         if (element.type === "ITEM" && element.item_id) {
                             key = element.item_id;
                         } else if (element.type === "ESSENCE" && element.essence_type) {
-                            key = "ESSENCE_" + element.essence_type;
+                            key =  element.essence_type + " ESSENCE";
                         }
 
                         if (key) {

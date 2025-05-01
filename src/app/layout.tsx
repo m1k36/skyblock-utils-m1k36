@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased` + "min-h-screen bg-background text-foreground h-screen"}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );

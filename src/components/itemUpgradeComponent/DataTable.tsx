@@ -41,12 +41,12 @@ export default function DataTable({item, bazaar}: itemCardProps) {
             <div className="text-sm text-gray-200 w-full">Category: <span className="font-semibold">{item.category}</span>
             </div>
 
-            <div className="w-full h-fit mt-4 rounded-lg text-black bar flex relative content-center">
+            <div className="w-full h-fit mt-4 rounded-lg text-white bar flex relative content-center border border-gray-800">
                 {item.upgrade_costs ?
-                        <Table className="w-full bg-white">
+                        <Table className="w-full rounded-lg">
                             <TableHeader>
                                 {table.getHeaderGroups().map((headerGroup) => (
-                                    <TableRow key={headerGroup.id} className="bg-gray-800">
+                                    <TableRow key={headerGroup.id} className="bg-gray-800 border-2 border-gray-800">
                                         {headerGroup.headers.map((header) => {
                                             return (
                                                 <TableHead key={header.id}
@@ -68,7 +68,7 @@ export default function DataTable({item, bazaar}: itemCardProps) {
                                     table.getRowModel().rows.map((row) => (
                                         <React.Fragment key={row.id}>
                                             <TableRow data-state={row.getIsSelected() && 'selected'}
-                                                      className="text-center">
+                                                      className="text-center border-2 border-gray-800">
                                                 {row.getVisibleCells().map((cell) => (
                                                     <TableCell key={cell.id}>
                                                         {flexRender(
