@@ -19,7 +19,7 @@ export default function HomePage() {
                         </p>
                         <p className="text-gray-300 text-lg">
                             This website is made with Next.js, and his here to help you with usefull features for
-                            Hypixel Skyblock.
+                            Hypixel Skyblock. I&#39;m currently working on it, so expect some new features soon !.
                         </p>
                         <p className="text-gray-300 text-lg">
                             Feel free to check it out !
@@ -33,6 +33,15 @@ export default function HomePage() {
                     >
                         Very useful button, trust :{'>'}
                     </Button>
+                </section>
+                <section
+                    className="max-w-3xl mx-auto p-8 space-y-6 flex flex-col mt-4 text-white bg-gray-900/70 rounded-lg content-center">
+                    <div>
+                        <p className="text-gray-300 text-lg">
+                            If you find any bugs, notice any weird behavior, or simply want to suggest something for the
+                            website (UI improvements, features, etc.), feel free to message me on Discord: M1k36#7266
+                        </p>
+                    </div>
                 </section>
             </main>
         </>
