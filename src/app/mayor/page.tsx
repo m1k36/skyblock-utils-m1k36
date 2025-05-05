@@ -6,14 +6,17 @@ import MayorInfo from "@/components/mayorComponent/MayorInfo";
 import {toArray} from "uri-js/dist/esnext/util";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ScrollArea} from "@/components/ui/scroll-area";
+import {CURRENT_YEAR} from "@/lib/utils";
+import ElectionTimer from "@/components/mayorComponent/ElectionTimer";
+import SpecialMayorTimer from "@/components/mayorComponent/SpecialMayorTimer";
 
 export default async function MayorPage() {
+
     const election = await getMayors();
-    const currentYear: number = election.mayor.election.year;
     const specialMayors = [
-        {name: "Derpy", year: currentYear + 24 - (currentYear - 392) % 24},
-        {name: "Jerry", year: currentYear + 24 - (currentYear - 400) % 24},
-        {name: "Scorpius", year: currentYear + 24 - (currentYear - 408) % 24}
+        {name: "Derpy", year: CURRENT_YEAR + 24 - (CURRENT_YEAR - 392) % 24},
+        {name: "Jerry", year: CURRENT_YEAR + 24 - (CURRENT_YEAR - 400) % 24},
+        {name: "Scorpius", year: CURRENT_YEAR + 24 - (CURRENT_YEAR - 408) % 24}
     ].sort((a, b) => a.year - b.year);
 
     return (
@@ -22,11 +25,13 @@ export default async function MayorPage() {
                 pageTitle={"Mayor stats"}
             />
             <main className="h-[90vh] m-2">
-                <ScrollArea className="max-w-3xl mx-auto p-8 space-y-6 h-full flex flex-col text-white bg-gray-900/70 rounded-lg content-center">
+                <ScrollArea
+                    className="max-w-3xl mx-auto p-8 space-y-6 h-full flex flex-col text-white bg-gray-900/70 rounded-lg content-center">
                     <h1 className="text-3xl font-bold">Skyblock elections </h1>
                     <p className="text-gray-300 text-lg">
                         See information&#39;s about elections in Skyblock !
                     </p>
+                    <ElectionTimer/>
                     <Accordion type="multiple">
                         <AccordionItem value="item-1">
                             <AccordionTrigger>
@@ -40,7 +45,7 @@ export default async function MayorPage() {
                                         mayorKey={election.mayor.key}
                                         votes={election.mayor.election.candidates.find((candidate) => candidate.name === election.mayor.name)?.votes}
                                     />
-                                    { election.mayor.minister &&
+                                    {election.mayor.minister &&
                                         <MayorInfo
                                             name={election.mayor.minister.name}
                                             perks={toArray(election.mayor.minister.perk)}
@@ -94,13 +99,9 @@ export default async function MayorPage() {
                                 <h2 className="text-xl font-bold">Special mayor</h2>
                             </AccordionTrigger>
                             <AccordionContent className="bg-gray-900 border-2 border-gray-900 rounded-lg p-4">
-                                {specialMayors.map((specialMayor, index) => (
-                                    <div key={index}>
-                                        <h3 className="font-semibold text-base"><span
-                                            className="font-bold">{specialMayor.name}</span> : Year {specialMayor.year}
-                                        </h3>
-                                    </div>
-                                ))}
+                                <SpecialMayorTimer
+                                    specialMayors={specialMayors}
+                                />
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
