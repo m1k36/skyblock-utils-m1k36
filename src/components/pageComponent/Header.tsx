@@ -4,12 +4,10 @@ import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/she
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {AlignJustify} from 'lucide-react';
+import {app_arch} from "@/lib/constant";
+import Logo from "@/components/pageComponent/logo";
 
-interface Props {
-    pageTitle: string;
-}
-
-export default function Header({pageTitle}: Props) {
+export default function Header() {
     return (
         <>
             <header className="flex items-center w-full justify-between px-4 py-3 text-white bg-gray-900">
@@ -21,15 +19,15 @@ export default function Header({pageTitle}: Props) {
                         </Button>
                     </SheetTrigger>
                     <SheetTitle className="text-lg font-semibold tracking-tight text-white">
-                        {pageTitle}
+                        <Logo />
                     </SheetTitle>
                     <SheetContent side="left" className="text-white bg-gray-900 border-gray-900">
                         <nav className="flex flex-col space-y-4 m-6 mt-10">
-                            <Link href="/public" className="text-2xl font-medium hover:underline">Home</Link>
-                            <Link href="/mayor" className="text-2xl font-medium hover:underline">Mayor</Link>
-                            <Link href="/items-upgrade" className="text-2xl font-medium hover:underline">Items upgrade</Link>
-                            <Link href="/bazaar" className="text-2xl font-medium hover:underline">Bazaar</Link>
-                            <Link href="/bingo" className="text-2xl font-medium hover:underline">Bingo</Link>
+                            {
+                                app_arch.map((item, index) => (
+                                    <Link key={index} href={item.link} className="text-2xl font-medium hover:underline">{item.title}</Link>
+                                ))
+                            }
                         </nav>
                     </SheetContent>
                 </Sheet>

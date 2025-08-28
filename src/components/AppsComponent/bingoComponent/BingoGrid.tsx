@@ -10,7 +10,7 @@ import {
     DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog";
-import {MinecraftText} from "@/components/mayorComponent/MinecraftText";
+import {MinecraftText} from "@/components/AppsComponent/mayorComponent/MinecraftText";
 import {Progress} from "@/components/ui/progress";
 
 interface BingoGridProps {
@@ -64,7 +64,7 @@ export default function BingoGrid({goals}: BingoGridProps) {
                                 <Dialog key={index}>
                                     <DialogTrigger>
                                         <Image
-                                            src="/img/Block_Of_Emerald.png"
+                                            src="/img/Block_of_Emerald.png"
                                             alt={goal.name}
                                             width={50}
                                             height={50}
