@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import {BazaarResponse} from "@/types/bazaarTypes";
 
 const API_BASE_URL = process.env.API_BASE_URL
