@@ -1,4 +1,4 @@
-import {Bingo} from "@/types/bingoType";
+import {Bingo} from "@/types/bingo";
 
 const API_BASE_URL = process.env.API_BASE_URL
 

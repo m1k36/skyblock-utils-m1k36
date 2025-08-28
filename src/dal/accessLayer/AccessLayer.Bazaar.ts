@@ -1,4 +1,4 @@
-import {BazaarResponse} from "@/types/bazaarTypes";
+import {BazaarResponse} from "@/types/bazaar";
 const API_BASE_URL = process.env.API_BASE_URL
 
 

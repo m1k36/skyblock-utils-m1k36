@@ -1,4 +1,4 @@
-import {ItemResponse} from "@/types/itemsTypes";
+import {ItemResponse} from "@/types/items";
 const API_BASE_URL = process.env.API_BASE_URL
 
 export const getItems = async (): Promise<ItemResponse> => {
