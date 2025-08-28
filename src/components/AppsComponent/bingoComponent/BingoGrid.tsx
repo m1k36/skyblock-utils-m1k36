@@ -1,6 +1,6 @@
 'use client'
 
-import {Goal} from "@/types/bingoType";
+import {Goal} from "@/types/bingo";
 import Image from "next/image";
 import {
     Dialog,

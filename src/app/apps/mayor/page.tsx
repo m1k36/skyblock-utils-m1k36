@@ -90,7 +90,7 @@ export default async function MayorPage() {
                     <AccordionTrigger>
                         <h2 className="text-xl font-bold">Special mayor</h2>
                     </AccordionTrigger>
-                    <AccordionContent className="bg-gray-900 border-2 border-gray-900 rounded-lg p-4">
+                    <AccordionContent className="bg-gray-900 border-1 rounded-lg p-4">
                         <SpecialMayorTimer
                             specialMayors={specialMayors}
                         />
