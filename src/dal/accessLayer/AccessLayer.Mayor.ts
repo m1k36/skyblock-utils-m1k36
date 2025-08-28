@@ -1,9 +1,17 @@
-import axios from 'axios'
 import {MayorResponse} from "@/types/electionTypes";
-
 const API_BASE_URL = process.env.API_BASE_URL
 
 export const getMayors = async (): Promise<MayorResponse> => {
-    const response = await axios.get(`${API_BASE_URL}/resources/skyblock/election`)
-    return response.data
-}
+    const response = await fetch(`${API_BASE_URL}/resources/skyblock/election`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        cache: 'force-cache',
+        next: {
+            revalidate: 60,
+        },
+    });
+
+    return await response.json();
+};
