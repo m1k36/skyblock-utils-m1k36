@@ -62,7 +62,7 @@ export default function BingoGrid({goals}: BingoGridProps) {
                         {goals.slice(i * 5, (i + 1) * 5).map((goal, index) => (
                             goal.tiers ? (
                                 <Dialog key={index}>
-                                    <DialogTrigger>
+                                    <DialogTrigger className="rounded hover:bg-gray-700">
                                         <Image
                                             src="/img/Block_of_Emerald.png"
                                             alt={goal.name}
@@ -89,7 +89,7 @@ export default function BingoGrid({goals}: BingoGridProps) {
                                 </Dialog>
                             ) : (
                                 <Dialog key={index}>
-                                    <DialogTrigger>
+                                    <DialogTrigger className="rounded hover:bg-gray-700">
                                         <Image
                                             src="/img/Paper.png"
                                             alt={goal.name}

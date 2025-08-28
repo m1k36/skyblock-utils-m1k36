@@ -15,7 +15,7 @@ export default async function Page() {
                 <p className="text-gray-300 text-lg w-ful">
                     See information&#39;s about bingo event in Skyblock !
                 </p>
-                <div className="flex flex-col mt-8 text-white bg-gray-900 border-2 border-gray-900 rounded-lg">
+                <div className="flex flex-col p-4 pt-6 mt-8 text-white border-1 rounded-lg">
                     <BingoInfo
                         name={bingo.name}
                         modifier={bingo.modifier}
