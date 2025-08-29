@@ -1,6 +1,6 @@
 'use client'
 
-import {COLOR_MAP} from "@/lib/utils";
+import {COLOR_MAP} from "@/lib/constant";
 
 interface BingoInfoProps {
     name: string;

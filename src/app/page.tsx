@@ -8,9 +8,9 @@ export default function Page() {
 
     return (
         <>
-            <main className="h-[90vh] m-2">
+            <main className="h-[90vh]">
                 <section
-                    className="max-w-3xl mx-auto p-8 space-y-6 flex flex-col mt-4 text-white rounded-lg content-center">
+                    className="max-w-3xl mx-auto space-y-6 flex flex-col mt-4 text-white rounded-lg content-center">
                     <h1 className="text-3xl font-bold">Welcome to my Website !</h1>
                     <div>
                         <p className="text-gray-300 text-lg">
@@ -32,7 +32,7 @@ export default function Page() {
                     </div>
                 </section>
                 <section
-                    className="max-w-3xl mx-auto p-8 pt-0 flex flex-col text-white rounded-lg content-center">
+                    className="max-w-3xl mx-auto pt-0 flex flex-col text-white rounded-lg content-center">
                     <Button
                         variant="secondary"
                         size="lg"

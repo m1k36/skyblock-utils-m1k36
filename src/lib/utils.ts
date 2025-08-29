@@ -1,33 +1,12 @@
 import {clsx, type ClassValue} from "clsx"
 import {twMerge} from "tailwind-merge"
+import {
+    CURRENT_YEAR, ELECTION_END_SKYBLOCK_DAY,
+    ELECTION_START_SKYBLOCK_DAY,
+    EPOCH_START_SKYBLOCK_TIME,
+    SKYBLOCK_YEAR_LENGTH
+} from "@/lib/constant";
 
-/* --- CONSTANT --- */
-export const EPOCH_START_SKYBLOCK_TIME = 1560275700000;
-export const SKYBLOCK_YEAR_LENGTH = 372;
-export const ELECTION_END_SKYBLOCK_DAY = 88;
-export const ELECTION_START_SKYBLOCK_DAY = 181;
-export const CURRENT_YEAR = ((Date.now() - EPOCH_START_SKYBLOCK_TIME) / SKYBLOCK_YEAR_LENGTH / 20 / 60 / 1000);
-export const CURRENT_DAY = Math.round(((Date.now() - EPOCH_START_SKYBLOCK_TIME) / 20 / 60 / 1000) % SKYBLOCK_YEAR_LENGTH);
-export const COLOR_MAP: Record<string, string> = {
-    '0': 'text-black',
-    '1': 'text-blue-900',
-    '2': 'text-green-900',
-    '3': 'text-cyan-800',
-    '4': 'text-red-900',
-    '5': 'text-purple-700',
-    '6': 'text-yellow-500',
-    '7': 'text-gray-400',
-    '8': 'text-gray-600',
-    '9': 'text-blue-600',
-    'a': 'text-green-400',
-    'b': 'text-cyan-400',
-    'c': 'text-red-500',
-    'd': 'text-pink-400',
-    'e': 'text-yellow-300',
-    'f': 'text-white',
-}
-
-/* --- FUNCTION --- */
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs))
 }
@@ -44,17 +23,30 @@ export function formatTimeLeftWithDays(ms: number): string {
 }
 
 export function getTimeFromYearDay(year: number, day: number) {
-    return new Date(EPOCH_START_SKYBLOCK_TIME + year * SKYBLOCK_YEAR_LENGTH * 20 * 60 * 1000 + day * 20 * 60 * 1000).getTime() - Date.now();
+    return new Date(
+        EPOCH_START_SKYBLOCK_TIME +
+        (year * SKYBLOCK_YEAR_LENGTH * 20 * 60 * 1000) +
+        (day * 20 * 60 * 1000)
+    ).getTime() - Date.now();
 }
 
 export function getTimeLeftEndElection() {
-    return getTimeFromYearDay(Math.round(CURRENT_YEAR % 1 > (ELECTION_START_SKYBLOCK_DAY * 100 / SKYBLOCK_YEAR_LENGTH) ? CURRENT_YEAR : CURRENT_YEAR + 1), ELECTION_END_SKYBLOCK_DAY);
+    return getTimeFromYearDay(
+        Math.round(CURRENT_YEAR),
+        ELECTION_END_SKYBLOCK_DAY,
+    );
 }
 
-export function getTimeStartEndElection() {
-    return getTimeFromYearDay(Math.round(CURRENT_YEAR), ELECTION_START_SKYBLOCK_DAY);
+export function getTimeLeftStartElection() {
+    return getTimeFromYearDay(
+        Math.round(CURRENT_YEAR),
+        ELECTION_START_SKYBLOCK_DAY,
+    );
 }
 
 export function getTimeLeftSpecialMayor(year: number) {
-    return getTimeFromYearDay(year, ELECTION_END_SKYBLOCK_DAY);
+    return getTimeFromYearDay(
+        year,
+        ELECTION_END_SKYBLOCK_DAY,
+    );
 }

@@ -1,12 +1,16 @@
 'use client'
 import React, {useEffect, useState} from 'react'
 import {
-    COLOR_MAP,
-    CURRENT_DAY, ELECTION_END_SKYBLOCK_DAY, ELECTION_START_SKYBLOCK_DAY,
     formatTimeLeftWithDays,
     getTimeLeftEndElection,
-    getTimeStartEndElection,
+    getTimeLeftStartElection,
 } from "@/lib/utils";
+import {
+    COLOR_MAP,
+    CURRENT_DAY,
+    ELECTION_END_SKYBLOCK_DAY,
+    ELECTION_START_SKYBLOCK_DAY
+} from "@/lib/constant";
 
 export default function ElectionTimer() {
 
@@ -16,7 +20,7 @@ export default function ElectionTimer() {
     useEffect(() => {
         setInterval(() => {
             setTimeLeftEndElection(getTimeLeftEndElection());
-            setTimeLeftStartElection(getTimeStartEndElection());
+            setTimeLeftStartElection(getTimeLeftStartElection());
         }, 1000);
     }, [])
 

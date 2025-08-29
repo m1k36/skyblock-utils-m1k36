@@ -4,11 +4,11 @@ import {getMayors} from "@/dal/accessLayer/AccessLayer.Mayor";
 import MayorInfo from "@/components/AppsComponent/mayorComponent/MayorInfo";
 import {toArray} from "uri-js/dist/esnext/util";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
-import {CURRENT_YEAR} from "@/lib/utils";
+import {CURRENT_YEAR} from "@/lib/constant";
 import ElectionTimer from "@/components/AppsComponent/mayorComponent/ElectionTimer";
 import SpecialMayorTimer from "@/components/AppsComponent/mayorComponent/SpecialMayorTimer";
 
-export default async function MayorPage() {
+export default async function Page() {
 
     const election = await getMayors();
     const specialMayors = [

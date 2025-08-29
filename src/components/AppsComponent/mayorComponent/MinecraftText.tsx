@@ -1,6 +1,6 @@
 'use client'
 import React, {JSX} from 'react'
-import {COLOR_MAP} from "@/lib/utils";
+import {COLOR_MAP} from "@/lib/constant";
 
 interface MinecraftTextProps {
     text: string
